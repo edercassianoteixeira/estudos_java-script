@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhaskara</title>
+    <style>
+        div{
+            font-size: 15pt;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        input{
+            width: 150px;
+            height: 50px;
+            font-size: 15pt;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Resolvendo Bhaskara</h1>
+        <p><input type="button" value="Calcular" onclick="calcula()"></p>
+    </div>
+    <div id="res">
+        Considerando uma equação no formato <code><strong>ax<sup>2</sup> + bx + c = 0</strong></code>, aperte no botão para calcular o valor de <strong>&Delta;</strong>.
+    </div>
+    <script>
+        function calcula(){
+            let res = document.querySelector('div#res')
+            let a = Number(prompt('Qual o valor de a?'))
+            let b = Number(prompt('Qual o valor de b?'))
+            let c = Number(prompt('Qual o valor de c?'))
+            let d = b**2 - (4 * a * c)
+            res.innerHTML = '<h2>Resolvendo...</h2>'
+            res.innerHTML += `<p>A equação atual é <strong>${a}x<sup>2</sup> + ${b}x + ${c} = 0</strong></p>`
+            res.innerHTML += `<p>O cálculo realizado será <strong>&Delta; = ${b}<sup>2</sup> - 4 . ${a} . ${c}</strong></p>`
+            res.innerHTML += `<p>O valor calculado foi <mark><strong>&Delta; = ${d}</strong></mark></p>`
+
+        }
+    </script>
+</body>
+</html>

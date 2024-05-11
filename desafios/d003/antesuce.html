@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antecessor e Sucessor</title>
+    <style>
+        input{
+            height: 50px;
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Antecessor e Sucessor</h1>
+    <p><input type="button" value="Iniciar Calculo" onclick="inicio()"></p>
+    <p>Clique no botão para iniciar.</p>
+    <script>
+        function inicio(){
+            let n = Number(prompt('Digite um númer inteiro:'))
+            let a = n - 1
+            let s = n + 1
+            alert(`Você digitou o número ${n}.\nO número Antecessor é : ${a}.\nO número Sucessor é : ${s}.`)
+        }
+    </script>
+</body>
+</html>

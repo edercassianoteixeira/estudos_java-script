@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converter Moeda</title>
+    <style>
+        div{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15pt;
+        }
+        input{
+            width: 150px;
+            height: 50px;
+            font-size: 15pt;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Convertendo de R$ &rarr; US$</h1>
+        <p><input type="button" value="Converter" onclick="converte()"></p>
+    </div>
+    <div id="res">
+        Clique no botão para iniciar.
+    </div>
+    <script>
+        let c = prompt('Para começarmos, inquique a cotação atual do dólar:')
+        function converte(){
+            let res = document.querySelector('div#res')
+            let r = Number(prompt('Qual o valor R$ que você irá converter:'))
+            let d = r / c
+            res.innerHTML = `Com <strong>${r.toLocaleString('pt-br' , {style: 'currency', currency: 'BRL'})}</strong> que você possui, você irá conseguir <strong>${d.toLocaleString('pt-br' , {style: 'currency', currency: 'USD'})}</strong>`
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Situação do Aluno</title>
+    <style>
+        div{
+            font-size: 15pt;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        input{
+            width: 150px;
+            height: 50px;
+            font-size: 15pt;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Situação do Aluno</h1>
+        <p><input type="button" value="Por Notas" onclick="calcular()"></p>
+    </div>
+    <div id="res">
+        Clique no botão para iniciar.
+    </div>
+    <script>
+        function calcular(){
+            let res = document.querySelector('div#res')
+            let nom = prompt('Nome do aluno:')
+            let n1 = Number(prompt(`Primeira nota de ${nom}:`)) 
+            let n2 = Number(prompt(`Segunda nota de ${nom}:`))
+            let n3 = Number(prompt(`Terceira nota de ${nom}:`))
+            let med = (n1 + n2 + n3) / 3
+            res.innerHTML = `<h2>Analisando a situação de ${nom}</h2>`
+            res.innerHTML += `<p>Com notas ${n1}, ${n2} e ${n3}, a média é ${med.toFixed(1)}.</p>`
+            if (med < 3.0){
+                res.innerHTML += '<p>Média abaixo de 3.0, está <strong>REPROVADO</strong>.</p>'
+            }else if (med < 6.0){
+                res.innerHTML += '<p>Média entre 3.0 e 6.0, está em <strong>RECUPERAÇÃO</strong>.</p>'
+            }else{
+                res.innerHTML += '<p>Média acima de 6.0, está <strong>APROVADO</strong>.</p>'
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preço Mudou</title>
+    <style>
+        div{
+            font-size: 15pt;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        input{
+            width: 150px;
+            height: 50px;
+            font-size: 15pt;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Preço Mudou</h1>
+        <p><input type="button" value="Verificar" onclick="verifica()"></p>
+    </div>
+    <div id="res">
+        clique no botão para iniciar.
+    </div>
+    <script>
+        function verifica(){
+            let res = document.querySelector('div#res')
+            let p1 = Number(prompt('Qual o preço anterior do produto?'))
+            let p2 = Number(prompt('Qual o preço atual do produto?'))
+            res.innerHTML = '<h2>Analisando os valores informados</h2>'
+            res.innerHTML += `<p>O produto que custava ${p1.toLocaleString('pt-br' , {style: 'currency', currency: 'BRL'})} passou a custar ${p2.toLocaleString('pt-br' , {style: 'currency', currency: 'BRL'})}.</p>`
+            if (p1 > p2){
+                let db = p1 - p2
+                let por = p1 * 100 / p2 - 100
+                res.innerHTML += `<p>O produto agora está mais barato.</p>`
+                res.innerHTML += `<p>O preço caiu ${db.toLocaleString('pt-br' , {style: 'currency', currency: 'BRL'})} em relação ao preço anterior.</p>`
+                res.innerHTML += `<p>Uma variação de ${por.toFixed(2)}% para baixo.</p>`
+            }else{
+                let ds = p2 - p1
+                let por = p2 * 100 / p1 - 100
+                res.innerHTML += `<p>O produto agora está mais caro.</p>`
+                res.innerHTML += `<p>O preço subiu ${ds.toLocaleString('pt-br' , {style: 'currency', currency: 'BRL'})} em relação ao preço anterior.</p>`
+                res.innerHTML += `<p>Uma variação de ${por.toFixed(2)}% para cima.</p>`
+            }
+        }
+    </script>
+</body>
+</html>

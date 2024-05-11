@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculando Desconto</title>
+    <style>
+        div{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15pt;
+        }
+        input{
+            width: 200px;
+            height: 50px;
+            font-size: 15pt;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Calcular Desconto</h1>
+        <p><input type="button" value="Desconto de 10%" onclick="desconta()"></p>
+    </div>
+    <div id="res">
+        Clique no botão para iniciar.
+    </div>
+    <script>
+        function desconta(){
+            let res = document.querySelector('div#res')
+            let pro = prompt('Qual é o produto que está comprando?')
+            let pre = Number(prompt(`Qual é o preço de ${pro}?`))
+            let des = pre / 10
+            res.innerHTML = `<h2><strong>Calculando desconto de 10% para ${pro}</strong></h2>`
+            res.innerHTML += `<p>O preço original era ${pre.toLocaleString('pt-br' , {style: 'currency', currency: 'BRL'})}.</p>`
+            res.innerHTML += `<p>Você acaba de ganhar ${des.toLocaleString('pt-br' , {style: 'currency', currency: 'BRL'})} de desconto (10%).</p>`
+            res.innerHTML += `<p>No fim, você vai pagar ${(pre - des).toLocaleString('pt-br' , {style: 'currency', currency: 'BRL'})} no produto ${pro}.</p>`
+        }
+    </script>
+</body>
+</html>
